@@ -1,9 +1,6 @@
 import axios from "axios";
-import {
-  API_END_POINT,
-  API_KEY,
-  FETCH_VIDEO_COUNT,
-} from "../constants/environment";
+import { FETCH_VIDEO_COUNT } from "../constants/classroom";
+import { API_END_POINT, API_KEY } from "../constants/environment";
 
 const API = axios.create({
   baseURL: API_END_POINT,
