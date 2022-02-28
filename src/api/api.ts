@@ -1,0 +1,18 @@
+import axios from "axios";
+import {
+  API_END_POINT,
+  API_KEY,
+  FETCH_VIDEO_COUNT,
+} from "../constants/environment";
+
+const API = axios.create({
+  baseURL: API_END_POINT,
+  params: {
+    part: "snippet",
+    order: "viewCount",
+    maxResults: FETCH_VIDEO_COUNT,
+    key: API_KEY,
+  },
+});
+
+export default API;
