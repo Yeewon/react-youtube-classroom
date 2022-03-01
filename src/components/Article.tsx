@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { Video } from "../models/Video";
 import { formatDate } from "../utils/date";
+import StatusButtonList from "./StatusButtonList";
 
 const ArticleContainer = styled.article``;
 const Iframe = styled.iframe`
@@ -62,7 +63,7 @@ const Article = ({
         </ChannelLink>
         <Date>{date}</Date>
       </Box>
-      {/* <ButtonList/> */}
+      <StatusButtonList />
     </ArticleContainer>
   );
 };
