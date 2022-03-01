@@ -6,7 +6,12 @@ type Props = {
 
 const SavedVideoCountSection = ({ savedVideoCount }: Props) => {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "flex-end",
+      }}
+    >
       <Typography>저장된 영상 갯수: {savedVideoCount}/100</Typography>
     </Box>
   );
