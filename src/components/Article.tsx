@@ -2,9 +2,11 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { Video } from "../models/Video";
 import { formatDate } from "../utils/date";
-import StatusButtonList from "./StatusButtonList";
 
-const ArticleContainer = styled.article``;
+type Props = {
+  videoInfo: Video;
+};
+
 const Iframe = styled.iframe`
   width: 100%;
   height: 120px;
@@ -32,16 +34,11 @@ const Date = styled.p`
   color: #606060;
 `;
 
-const Article = ({
-  videoId,
-  channelId,
-  channelTitle,
-  publishTime,
-  title,
-}: Video) => {
+const Article = ({ videoInfo }: Props) => {
+  const { videoId, channelId, channelTitle, publishTime, title } = videoInfo;
   const date = formatDate(publishTime);
   return (
-    <ArticleContainer>
+    <article>
       <Iframe
         src={`https://www.youtube.com/embed/${videoId}`}
         frameBorder="0"
@@ -63,8 +60,7 @@ const Article = ({
         </ChannelLink>
         <Date>{date}</Date>
       </Box>
-      <StatusButtonList />
-    </ArticleContainer>
+    </article>
   );
 };
 
