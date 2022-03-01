@@ -11,6 +11,7 @@ const Title = ({ name }: Props) => {
       align="center"
       variant="h5"
       sx={{
+        mt: 5,
         fontWeight: "bold",
       }}
     >
