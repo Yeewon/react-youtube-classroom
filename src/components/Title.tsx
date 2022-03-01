@@ -2,10 +2,10 @@ import { Typography } from "@mui/material";
 import React from "react";
 
 type Props = {
-  name: string;
+  children: React.ReactNode;
 };
 
-const Title = ({ name }: Props) => {
+const Title = ({ children }: Props) => {
   return (
     <Typography
       align="center"
@@ -15,13 +15,9 @@ const Title = ({ name }: Props) => {
         fontWeight: "bold",
       }}
     >
-      👩🏻‍💻 {name}의 유튜브 강의실 👨🏻‍💻
+      {children}
     </Typography>
   );
-};
-
-Title.defaultProps = {
-  name: "",
 };
 
 export default Title;
