@@ -7,6 +7,7 @@ type Props = {
 const ButtonItem = styled.button`
   height: 36px;
   min-width: 64px;
+  margin-left: 10px;
   padding: 0 16px;
   border-radius: 4px;
   outline: 0;
