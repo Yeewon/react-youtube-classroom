@@ -1,4 +1,9 @@
 import styled from "@emotion/styled";
+import React, { useState } from "react";
+
+type Props = {
+  onSubmit: (keyword: string) => void;
+};
 
 const Form = styled.form`
   display: flex;
@@ -20,11 +25,30 @@ const Button = styled.button`
   background-color: rgb(0, 188, 212);
 `;
 
-const SearchForm = () => {
+const SearchForm = ({ onSubmit }: Props) => {
+  const [keyword, setKeyword] = useState<string>("");
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setKeyword(value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit(keyword);
+    setKeyword("");
+  };
+
   return (
-    <Form>
-      <Input />
-      <Button>검색</Button>
+    <Form onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="keyword"
+        value={keyword}
+        placeholder="검색"
+        onChange={onChange}
+      />
+      <Button type="submit">검색</Button>
     </Form>
   );
 };
