@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 type Props = {
   keyword: string;
+  onClickKeyword: any;
   key: number;
 };
 
@@ -19,8 +20,11 @@ const KeywordButton = styled.span`
   border: none;
 `;
 
-const LatestKeywordItem = ({ keyword }: Props) => {
-  return <KeywordButton>{keyword}</KeywordButton>;
+const LatestKeywordItem = ({ keyword, onClickKeyword }: Props) => {
+  const handleClickKeyword = () => {
+    onClickKeyword(keyword);
+  };
+  return <KeywordButton onClick={handleClickKeyword}>{keyword}</KeywordButton>;
 };
 
 export default LatestKeywordItem;

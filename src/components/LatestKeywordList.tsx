@@ -3,9 +3,10 @@ import LatestKeywordItem from "./LatestKeywordItem";
 
 type Props = {
   keywordList: string[];
+  onClickKeyword: any;
 };
 
-const LatestKeywordList = ({ keywordList }: Props) => {
+const LatestKeywordList = ({ keywordList, onClickKeyword }: Props) => {
   return (
     <Box
       sx={{
@@ -19,7 +20,11 @@ const LatestKeywordList = ({ keywordList }: Props) => {
       </Box>
       <Box>
         {keywordList.map((aKeyword, index) => (
-          <LatestKeywordItem keyword={aKeyword} key={index} />
+          <LatestKeywordItem
+            keyword={aKeyword}
+            onClickKeyword={onClickKeyword}
+            key={index}
+          />
         ))}
       </Box>
     </Box>
