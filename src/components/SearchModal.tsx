@@ -10,8 +10,13 @@ import { getSearchResult } from "../api/getSearchResult";
 import { formatVideo } from "../utils/video";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { MAX_STORE_KEYWORD_COUNT } from "../constants/classroom";
+import { Close } from "@mui/icons-material";
 
-const SearchModal = () => {
+type Props = {
+  onClose: any;
+};
+
+const SearchModal = ({ onClose }: Props) => {
   const [keyword, setKeyword] = useState("");
   const [results, setResults] = useState<Video[]>([]);
   const [savedVideoCount, setSavedVideoCount] = useState(0);
@@ -75,6 +80,15 @@ const SearchModal = () => {
 
   return (
     <Box sx={style}>
+      <Box
+        onClick={onClose}
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Close fontSize="medium" />
+      </Box>
       <Title>🔎 유튜브 검색</Title>
       <SearchForm onSubmit={searchVideo} selectedKeyword={keyword} />
       <LatestKeywordList

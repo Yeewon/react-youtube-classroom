@@ -2,6 +2,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import SearchModal from "./SearchModal";
+import { Close } from "@mui/icons-material";
 
 const Button = styled.button`
   height: 36px;
@@ -33,7 +34,7 @@ const FilterButtonList = () => {
       <Button>👍🏻 좋아요 한 영상</Button>
       <Button onClick={handleOpen}>🔍 동영상 검색</Button>
       <Modal open={open} onClose={handleClose}>
-        <SearchModal />
+        <SearchModal onClose={handleClose} />
       </Modal>
     </Box>
   );
