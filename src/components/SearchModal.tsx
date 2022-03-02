@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import LatestKeywordList from "./LatestKeywordList";
 import SavedVideoCountSection from "./SavedVideoCountSection";
 import VideoSearchResultList from "./VideoSearchResultList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Video } from "../models/Video";
 import { getSearchResult } from "../api/getSearchResult";
 import { formatVideo } from "../utils/video";
@@ -22,6 +22,10 @@ const SearchModal = () => {
     "savedVideoList",
     [],
   );
+
+  useEffect(() => {
+    setSavedVideoCount(savedVideoList.length);
+  }, [setSavedVideoCount, savedVideoList]);
 
   const handleSubmit = async (keyword: string) => {
     const { items } = await getSearchResult(keyword);
