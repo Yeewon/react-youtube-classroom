@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 
 type ReturnType<T> = [T, React.Dispatch<React.SetStateAction<T>>];
 
-const useLocalStorage = <T,>(key: string, initialValue: T): ReturnType<T> => {
+const useLocalStorage = <T,>(
+  key: string,
+  initialValue: T | undefined,
+): ReturnType<T> => {
   const [state, setState] = useState<T>(() => {
     if (!initialValue) return;
     try {
