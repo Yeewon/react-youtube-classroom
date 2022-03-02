@@ -47,6 +47,7 @@ const Article = ({ videoInfo }: Props) => {
       ></Iframe>
       <Box
         sx={{
+          width: "100%",
           pt: 0.5,
           pl: 0.5,
         }}
