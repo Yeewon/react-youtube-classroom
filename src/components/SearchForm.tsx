@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
   onSubmit: (keyword: string) => void;
+  selectedKeyword: string;
 };
 
 const Form = styled.form`
@@ -25,8 +26,12 @@ const Button = styled.button`
   background-color: rgb(0, 188, 212);
 `;
 
-const SearchForm = ({ onSubmit }: Props) => {
+const SearchForm = ({ onSubmit, selectedKeyword }: Props) => {
   const [keyword, setKeyword] = useState<string>("");
+
+  useEffect(() => {
+    setKeyword(selectedKeyword);
+  }, [selectedKeyword]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

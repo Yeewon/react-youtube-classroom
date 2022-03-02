@@ -12,6 +12,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 import { MAX_STORE_KEYWORD_COUNT } from "../constants/classroom";
 
 const SearchModal = () => {
+  const [keyword, setKeyword] = useState("");
   const [results, setResults] = useState<Video[]>([]);
   const [savedVideoCount, setSavedVideoCount] = useState(0);
   const [latestKeywordList, setLatestKeywordList] = useLocalStorage<string[]>(
@@ -27,7 +28,9 @@ const SearchModal = () => {
     setSavedVideoCount(savedVideoList.length);
   }, [setSavedVideoCount, savedVideoList]);
 
-  const handleSubmit = async (keyword: string) => {
+  const searchVideo = async (keyword: string) => {
+    setKeyword(keyword);
+
     const { items } = await getSearchResult(keyword);
     const formattedResults = formatVideo(items);
     setResults(formattedResults);
@@ -73,8 +76,11 @@ const SearchModal = () => {
   return (
     <Box sx={style}>
       <Title>🔎 유튜브 검색</Title>
-      <SearchForm onSubmit={handleSubmit} />
-      <LatestKeywordList keywordList={latestKeywordList} />
+      <SearchForm onSubmit={searchVideo} selectedKeyword={keyword} />
+      <LatestKeywordList
+        keywordList={latestKeywordList}
+        onClickKeyword={searchVideo}
+      />
       <SavedVideoCountSection savedVideoCount={savedVideoCount} />
       <VideoSearchResultList
         searchResultList={results}
