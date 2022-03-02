@@ -9,7 +9,12 @@ type Props = {
 
 const SavedVideoArticle = ({ videoInfo }: Props) => {
   return (
-    <Box>
+    <Box
+      sx={{
+        maxWidth: "180px",
+        m: 0.5,
+      }}
+    >
       <Article videoInfo={videoInfo} />
       <StatusButtonList />
     </Box>
