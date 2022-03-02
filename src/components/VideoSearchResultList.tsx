@@ -4,18 +4,36 @@ import VideoSearchResult from "./VideoSearchResult";
 
 type Props = {
   searchResultList: Video[];
+  savedVideoList: Video[];
+  onClickSaveButton: object;
 };
 
-const VideoSearchResultList = ({ searchResultList }: Props) => {
+const VideoSearchResultList = ({
+  searchResultList,
+  savedVideoList,
+  onClickSaveButton,
+}: Props) => {
   return (
     <Box
       sx={{
         display: "flex",
+        flexWrap: "wrap",
       }}
     >
-      {searchResultList.map((searchResult, index) => (
-        <VideoSearchResult key={index} videoInfo={searchResult} />
-      ))}
+      {searchResultList.map((searchResult, index) => {
+        const isSaved: boolean = !!savedVideoList.filter(
+          savedVideo => savedVideo.videoId === searchResult.videoId,
+        ).length;
+
+        return (
+          <VideoSearchResult
+            key={index}
+            videoInfo={searchResult}
+            initialState={isSaved}
+            onClickSaveButton={onClickSaveButton}
+          />
+        );
+      })}
     </Box>
   );
 };

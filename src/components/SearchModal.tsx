@@ -4,7 +4,7 @@ import SearchForm from "./SearchForm";
 import LatestKeywordList from "./LatestKeywordList";
 import SavedVideoCountSection from "./SavedVideoCountSection";
 import VideoSearchResultList from "./VideoSearchResultList";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Video } from "../models/Video";
 import { getSearchResult } from "../api/getSearchResult";
 import { formatVideo } from "../utils/video";
@@ -18,12 +18,39 @@ const SearchModal = () => {
     "latestKeywordList",
     [],
   );
+  const [savedVideoList, setSavedVideoList] = useLocalStorage<Video[]>(
+    "savedVideoList",
+    [],
+  );
 
   const handleSubmit = async (keyword: string) => {
     const { items } = await getSearchResult(keyword);
     const formattedResults = formatVideo(items);
     setResults(formattedResults);
     updateLatestKeywordList(keyword);
+  };
+
+  const handleSaveVideo = (targetVideo: Video, isSaved: boolean) => {
+    let newVideoList = [...savedVideoList];
+
+    if (isSaved) {
+      newVideoList = [
+        ...newVideoList,
+        {
+          ...targetVideo,
+          status: {
+            isWatched: false,
+            isLiked: false,
+          },
+        },
+      ];
+    } else {
+      newVideoList = newVideoList.filter(
+        video => video.videoId !== targetVideo.videoId,
+      );
+    }
+
+    setSavedVideoList(newVideoList);
   };
 
   const updateLatestKeywordList = (newKeyword: string) => {
@@ -45,7 +72,11 @@ const SearchModal = () => {
       <SearchForm onSubmit={handleSubmit} />
       <LatestKeywordList keywordList={latestKeywordList} />
       <SavedVideoCountSection savedVideoCount={savedVideoCount} />
-      <VideoSearchResultList searchResultList={results} />
+      <VideoSearchResultList
+        searchResultList={results}
+        savedVideoList={savedVideoList}
+        onClickSaveButton={handleSaveVideo}
+      />
     </Box>
   );
 };
