@@ -5,6 +5,7 @@ import SearchModal from "./SearchModal";
 import { Video } from "../models/Video";
 
 type Props = {
+  display: string;
   onSaveVideo: (savedVideoList: Video[]) => void;
   onDisplay: (id: string) => void;
 };
@@ -22,8 +23,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const FilterButtonList = ({ onSaveVideo, onDisplay }: Props) => {
-  const [display, setDisplay] = useState("toWatch");
+const FilterButtonList = ({ display, onSaveVideo, onDisplay }: Props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -31,7 +31,6 @@ const FilterButtonList = ({ onSaveVideo, onDisplay }: Props) => {
   const handleDisplay = (e: React.MouseEvent<HTMLDivElement>) => {
     const { id } = e.target as HTMLInputElement;
     onDisplay(id);
-    setDisplay(id);
   };
 
   return (
