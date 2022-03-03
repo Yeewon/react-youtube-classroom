@@ -36,17 +36,19 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
         justifyContent: "center",
       }}
     >
-      {videoList.map((aVideo, index) => {
-        return (
-          <SavedVideoArticle
-            key={index}
-            videoInfo={aVideo}
-            onClick={onClick}
-            onSnackbar={onSnackbar}
-            onDelete={onDelete}
-          />
-        );
-      })}
+      {videoList.length
+        ? videoList.map((aVideo, index) => {
+            return (
+              <SavedVideoArticle
+                key={index}
+                videoInfo={aVideo}
+                onClick={onClick}
+                onSnackbar={onSnackbar}
+                onDelete={onDelete}
+              />
+            );
+          })
+        : `영상이 없습니다. 😥`}
       <Snackbar
         open={open}
         autoHideDuration={3000}
