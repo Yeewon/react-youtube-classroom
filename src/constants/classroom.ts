@@ -11,3 +11,5 @@ export const LIKE_CANCEL_SUCCESS_MSG = `좋아요 표시한 동영상에서 삭�
 export const EXCEEDED_STORABLE_VIDEOS_MSG = `저장 가능한 최대 동영상 개수 초과됨`;
 
 export const DELETE_CONFIRM_NSG = "해당 영상을 삭제하시겠습니까?";
+
+export const EMPTY_VIDEO_MSG = `영상이 없습니다. 😥`;

@@ -1,5 +1,6 @@
 import { Box, Snackbar } from "@mui/material";
 import { useState } from "react";
+import { EMPTY_VIDEO_MSG } from "../constants/classroom";
 import { Video } from "../models/Video";
 import SavedVideoArticle from "./SavedVideoArticle";
 
@@ -48,7 +49,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
               />
             );
           })
-        : `영상이 없습니다. 😥`}
+        : EMPTY_VIDEO_MSG}
       <Snackbar
         open={open}
         autoHideDuration={3000}
