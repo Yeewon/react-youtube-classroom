@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Video } from "../models/Video";
 import Article from "./Article";
 import styled from "@emotion/styled";
@@ -26,7 +26,6 @@ const VideoSearchResult = ({
   videoInfo,
   initialState,
   onClickSaveButton,
-  key,
 }: Props) => {
   const [isSaved, setIsSaved] = useState(initialState);
 

@@ -14,6 +14,13 @@ const App = () => {
     setVideoList(savedVideoList);
   };
 
+  const handleClickStatusButton = (newVideo: Video) => {
+    const newVideoList = videoList.map(aVideo =>
+      aVideo.videoId === newVideo.videoId ? newVideo : aVideo,
+    );
+    setVideoList(newVideoList);
+  };
+
   return (
     <Box
       sx={{
@@ -22,7 +29,7 @@ const App = () => {
     >
       <Title>👩🏻‍💻 예원의 유튜브 강의실 👨🏻‍💻</Title>
       <FilterButtonList onSaveVideo={onSaveVideo} />
-      <SavedVideoList videoList={videoList} />
+      <SavedVideoList videoList={videoList} onClick={handleClickStatusButton} />
     </Box>
   );
 };
