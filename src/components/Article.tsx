@@ -13,10 +13,13 @@ const Iframe = styled.iframe`
 `;
 
 const VideoTitle = styled.h3`
+  display: -webkit-box;
   margin: 0;
   font-size: 14px;
   font-weight: 500;
+  -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   color: #0a0a0a;
 `;
