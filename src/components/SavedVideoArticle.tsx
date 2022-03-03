@@ -6,9 +6,10 @@ import StatusButtonList from "./StatusButtonList";
 type Props = {
   videoInfo: Video;
   onClick: (newVideo: Video) => void;
+  onSnackbar: (type: string) => void;
 };
 
-const SavedVideoArticle = ({ videoInfo, onClick }: Props) => {
+const SavedVideoArticle = ({ videoInfo, onClick, onSnackbar }: Props) => {
   return (
     <Box
       sx={{
@@ -17,7 +18,11 @@ const SavedVideoArticle = ({ videoInfo, onClick }: Props) => {
       }}
     >
       <Article videoInfo={videoInfo} />
-      <StatusButtonList video={videoInfo} onClick={onClick} />
+      <StatusButtonList
+        video={videoInfo}
+        onClick={onClick}
+        onSnackbar={onSnackbar}
+      />
     </Box>
   );
 };

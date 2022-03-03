@@ -5,6 +5,7 @@ import { Video } from "../models/Video";
 type Props = {
   video: Video;
   onClick: (newVideo: Video) => void;
+  onSnackbar: (type: string) => void;
 };
 
 const StatusButton = styled.span`
@@ -12,7 +13,7 @@ const StatusButton = styled.span`
   margin-left: 7px;
 `;
 
-const StatusButtonList = ({ video, onClick }: Props) => {
+const StatusButtonList = ({ video, onClick, onSnackbar }: Props) => {
   const { status } = video;
   const { isWatched, isLiked } = status;
 
@@ -26,6 +27,7 @@ const StatusButtonList = ({ video, onClick }: Props) => {
       },
     };
     onClick(newVideo);
+    onSnackbar(id);
   };
 
   return (
