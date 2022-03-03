@@ -1,8 +1,12 @@
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import SearchModal from "./SearchModal";
-import { Close } from "@mui/icons-material";
+import { Video } from "../models/Video";
+
+type Props = {
+  onSaveVideo: (savedVideoList: Video[]) => void;
+};
 
 const Button = styled.button`
   height: 36px;
@@ -15,7 +19,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const FilterButtonList = () => {
+const FilterButtonList = ({ onSaveVideo }: Props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -34,7 +38,7 @@ const FilterButtonList = () => {
       <Button>👍🏻 좋아요 한 영상</Button>
       <Button onClick={handleOpen}>🔍 동영상 검색</Button>
       <Modal open={open} onClose={handleClose}>
-        <SearchModal onClose={handleClose} />
+        <SearchModal onClose={handleClose} onSaveVideo={onSaveVideo} />
       </Modal>
     </Box>
   );

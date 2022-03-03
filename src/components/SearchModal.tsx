@@ -14,9 +14,10 @@ import { Close } from "@mui/icons-material";
 
 type Props = {
   onClose: any;
+  onSaveVideo: (savedVideoList: Video[]) => void;
 };
 
-const SearchModal = ({ onClose }: Props) => {
+const SearchModal = ({ onClose, onSaveVideo }: Props) => {
   const [keyword, setKeyword] = useState("");
   const [results, setResults] = useState<Video[]>([]);
   const [savedVideoCount, setSavedVideoCount] = useState(0);
@@ -31,7 +32,8 @@ const SearchModal = ({ onClose }: Props) => {
 
   useEffect(() => {
     setSavedVideoCount(savedVideoList.length);
-  }, [setSavedVideoCount, savedVideoList]);
+    onSaveVideo(savedVideoList);
+  }, [setSavedVideoCount, onSaveVideo, savedVideoList]);
 
   const searchVideo = async (keyword: string) => {
     setKeyword(keyword);

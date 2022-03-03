@@ -4,9 +4,10 @@ import SavedVideoArticle from "./SavedVideoArticle";
 
 type Props = {
   videoList: Video[];
+  onClick: (newVideo: Video) => void;
 };
 
-const SavedVideoList = ({ videoList }: Props) => {
+const SavedVideoList = ({ videoList, onClick }: Props) => {
   return (
     <Box
       sx={{
@@ -16,7 +17,9 @@ const SavedVideoList = ({ videoList }: Props) => {
       }}
     >
       {videoList.map((aVideo, index) => {
-        return <SavedVideoArticle key={index} videoInfo={aVideo} />;
+        return (
+          <SavedVideoArticle key={index} videoInfo={aVideo} onClick={onClick} />
+        );
       })}
     </Box>
   );
