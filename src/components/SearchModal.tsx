@@ -87,6 +87,7 @@ const SearchModal = ({ onClose, onSaveVideo }: Props) => {
         sx={{
           display: "flex",
           justifyContent: "flex-end",
+          cursor: "pointer",
         }}
       >
         <Close fontSize="medium" />
