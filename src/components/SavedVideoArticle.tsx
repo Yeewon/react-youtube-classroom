@@ -7,9 +7,15 @@ type Props = {
   videoInfo: Video;
   onClick: (newVideo: Video) => void;
   onSnackbar: (type: string) => void;
+  onDelete: (videoId: string) => void;
 };
 
-const SavedVideoArticle = ({ videoInfo, onClick, onSnackbar }: Props) => {
+const SavedVideoArticle = ({
+  videoInfo,
+  onClick,
+  onSnackbar,
+  onDelete,
+}: Props) => {
   return (
     <Box
       sx={{
@@ -22,6 +28,7 @@ const SavedVideoArticle = ({ videoInfo, onClick, onSnackbar }: Props) => {
         video={videoInfo}
         onClick={onClick}
         onSnackbar={onSnackbar}
+        onDelete={onDelete}
       />
     </Box>
   );

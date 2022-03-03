@@ -6,9 +6,10 @@ import SavedVideoArticle from "./SavedVideoArticle";
 type Props = {
   videoList: Video[];
   onClick: (newVideo: Video) => void;
+  onDelete: (videoId: string) => void;
 };
 
-const SavedVideoList = ({ videoList, onClick }: Props) => {
+const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("snackbar test!");
 
@@ -42,6 +43,7 @@ const SavedVideoList = ({ videoList, onClick }: Props) => {
             videoInfo={aVideo}
             onClick={onClick}
             onSnackbar={onSnackbar}
+            onDelete={onDelete}
           />
         );
       })}

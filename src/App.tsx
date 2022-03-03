@@ -41,6 +41,11 @@ const App = () => {
     setVideoList(savedVideoList);
   };
 
+  const onDeleteVideo = (videoId: string) => {
+    const newVideoList = videoList.filter(aVideo => aVideo.videoId !== videoId);
+    setVideoList(newVideoList);
+  };
+
   const handleClickStatusButton = (newVideo: Video) => {
     const newVideoList = videoList.map(aVideo =>
       aVideo.videoId === newVideo.videoId ? newVideo : aVideo,
@@ -63,6 +68,7 @@ const App = () => {
       <SavedVideoList
         videoList={displayVideoList}
         onClick={handleClickStatusButton}
+        onDelete={onDeleteVideo}
       />
     </Box>
   );
