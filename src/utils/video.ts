@@ -23,6 +23,10 @@ export const formatVideo = (videos: results[]): Video[] => {
       channelTitle,
       publishTime,
       title,
+      status: {
+        isWatched: false,
+        isLiked: false,
+      },
     };
   });
   return formattedVideos;

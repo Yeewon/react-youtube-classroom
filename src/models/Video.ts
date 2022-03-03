@@ -4,7 +4,7 @@ export interface Video {
   channelTitle: string;
   publishTime: string;
   title: string;
-  status?: {
+  status: {
     isWatched: boolean;
     isLiked: boolean;
   };
