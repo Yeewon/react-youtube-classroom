@@ -3,15 +3,13 @@ import React, { useEffect, useState } from "react";
 import FilterButtonList from "./components/FIlterButtonList";
 import SavedVideoList from "./components/SavedVideoList";
 import Title from "./components/Title";
+import { VIDEO_INFOS } from "./constants/localStorage";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Video } from "./models/Video";
 
 const App = () => {
   const [displayOption, setDisplayOption] = useState("toWatch");
-  const [videoList, setVideoList] = useLocalStorage<Video[]>(
-    "savedVideoList",
-    [],
-  );
+  const [videoList, setVideoList] = useLocalStorage<Video[]>(VIDEO_INFOS, []);
   const [displayVideoList, setDisplayVideoList] = useState(videoList);
 
   useEffect(() => {
