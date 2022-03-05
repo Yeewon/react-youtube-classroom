@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { DELETE_CONFIRM_NSG } from "../constants/classroom";
+import { DELETE_VIDEO_CONFIRM_NSG } from "../constants/confirmMessage";
 import { Video } from "../models/Video";
 
 type Props = {
@@ -36,7 +36,7 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
   };
 
   const handleDeleteVideo = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (window.confirm(DELETE_CONFIRM_NSG)) {
+    if (window.confirm(DELETE_VIDEO_CONFIRM_NSG)) {
       onDelete(video.videoId);
     }
   };
