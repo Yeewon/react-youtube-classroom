@@ -11,6 +11,7 @@ import { formatVideo } from "../utils/video";
 import useLocalStorage from "../hooks/useLocalStorage";
 import { MAX_STORE_KEYWORD_COUNT } from "../constants/classroom";
 import { Close } from "@mui/icons-material";
+import { LATEST_KEYWORDS, VIDEO_INFOS } from "../constants/localStorage";
 
 type Props = {
   onClose: any;
@@ -22,11 +23,11 @@ const SearchModal = ({ onClose, onSaveVideo }: Props) => {
   const [results, setResults] = useState<Video[]>([]);
   const [savedVideoCount, setSavedVideoCount] = useState(0);
   const [latestKeywordList, setLatestKeywordList] = useLocalStorage<string[]>(
-    "latestKeywordList",
+    LATEST_KEYWORDS,
     [],
   );
   const [savedVideoList, setSavedVideoList] = useLocalStorage<Video[]>(
-    "savedVideoList",
+    VIDEO_INFOS,
     [],
   );
 
