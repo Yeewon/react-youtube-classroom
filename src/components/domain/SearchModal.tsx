@@ -1,17 +1,17 @@
 import { Box } from "@mui/material";
-import Title from "./base/Title";
 import SearchForm from "./SearchForm";
 import LatestKeywordList from "./LatestKeywordList";
 import SavedVideoCountSection from "./SavedVideoCountSection";
 import VideoSearchResultList from "./VideoSearchResultList";
 import { useEffect, useState } from "react";
-import { Video } from "../models/Video";
-import { getSearchResult } from "../api/getSearchResult";
-import { formatVideo } from "../utils/video";
-import useLocalStorage from "../hooks/useLocalStorage";
-import { MAX_STORE_KEYWORD_COUNT } from "../constants/classroom";
 import { Close } from "@mui/icons-material";
-import { LATEST_KEYWORDS, VIDEO_INFOS } from "../constants/localStorage";
+import { Video } from "../../models/Video";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import { LATEST_KEYWORDS, VIDEO_INFOS } from "../../constants/localStorage";
+import { getSearchResult } from "../../api/getSearchResult";
+import { formatVideo } from "../../utils/video";
+import { MAX_STORE_KEYWORD_COUNT } from "../../constants/classroom";
+import Title from "../base/Title";
 
 type Props = {
   onClose: any;

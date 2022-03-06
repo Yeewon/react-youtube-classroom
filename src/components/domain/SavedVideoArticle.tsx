@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { Video } from "../models/Video";
-import Article from "./Article";
+import { Article } from "..";
+import { Video } from "../../models/Video";
 import StatusButtonList from "./StatusButtonList";
 
 type Props = {

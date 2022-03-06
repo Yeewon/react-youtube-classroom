@@ -1,8 +1,8 @@
 import { Box, Snackbar, Typography } from "@mui/material";
 import { useState } from "react";
-import { EMPTY_VIDEO_MSG } from "../constants/classroom";
-import { Video } from "../models/Video";
-import LottieIcon from "./lottieIcon";
+import { LottieIcon } from "..";
+import { EMPTY_VIDEO_MSG } from "../../constants/classroom";
+import { Video } from "../../models/Video";
 import SavedVideoArticle from "./SavedVideoArticle";
 
 type Props = {

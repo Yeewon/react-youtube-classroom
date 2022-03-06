@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { DELETE_VIDEO_CONFIRM_NSG } from "../constants/confirmMessage";
-import { Video } from "../models/Video";
+import { DELETE_VIDEO_CONFIRM_NSG } from "../../constants/confirmMessage";
+import { Video } from "../../models/Video";
 
 type Props = {
   video: Video;

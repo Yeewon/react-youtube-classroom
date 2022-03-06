@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
-import { Video } from "../models/Video";
-import Article from "./Article";
+
 import styled from "@emotion/styled";
+import { Article } from "..";
+import { Video } from "../../models/Video";
 
 type Props = {
   videoInfo: Video;
