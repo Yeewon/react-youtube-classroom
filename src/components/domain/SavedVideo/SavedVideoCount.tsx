@@ -4,7 +4,7 @@ type Props = {
   savedVideoCount: number;
 };
 
-const SavedVideoCountSection = ({ savedVideoCount }: Props) => {
+const SavedVideoCount = ({ savedVideoCount }: Props) => {
   return (
     <Box
       sx={{
@@ -17,4 +17,4 @@ const SavedVideoCountSection = ({ savedVideoCount }: Props) => {
   );
 };
 
-export default SavedVideoCountSection;
+export default SavedVideoCount;

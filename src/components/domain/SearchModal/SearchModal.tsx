@@ -1,17 +1,17 @@
 import { Box } from "@mui/material";
 import SearchForm from "./SearchForm";
-import LatestKeywordList from "./LatestKeywordList";
-import SavedVideoCountSection from "./SavedVideoCountSection";
-import VideoSearchResultList from "./VideoSearchResultList";
 import { useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
-import { Video } from "../../models/Video";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import { LATEST_KEYWORDS, VIDEO_INFOS } from "../../constants/localStorage";
-import { getSearchResult } from "../../api/getSearchResult";
-import { formatVideo } from "../../utils/video";
-import { MAX_STORE_KEYWORD_COUNT } from "../../constants/classroom";
-import Title from "../base/Title";
+import { Video } from "../../../models/Video";
+import useLocalStorage from "../../../hooks/useLocalStorage";
+import { LATEST_KEYWORDS, VIDEO_INFOS } from "../../../constants/localStorage";
+import { getSearchResult } from "../../../api/getSearchResult";
+import { formatVideo } from "../../../utils/video";
+import { MAX_STORE_KEYWORD_COUNT } from "../../../constants/classroom";
+import Title from "../../base/Title";
+import LatestKeywordList from "../LatestKeyword/LatestKeywordList";
+import SavedVideoCount from "../SavedVideo/SavedVideoCount";
+import VideoSearchResultList from "../SearchResult/VideoSearchResultList";
 
 type Props = {
   onClose: any;
@@ -99,7 +99,7 @@ const SearchModal = ({ onClose, onSaveVideo }: Props) => {
         keywordList={latestKeywordList}
         onClickKeyword={searchVideo}
       />
-      <SavedVideoCountSection savedVideoCount={savedVideoCount} />
+      <SavedVideoCount savedVideoCount={savedVideoCount} />
       <VideoSearchResultList
         searchResultList={results}
         savedVideoList={savedVideoList}

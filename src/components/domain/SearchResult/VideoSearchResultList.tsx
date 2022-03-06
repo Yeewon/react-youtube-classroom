@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { Video } from "../../models/Video";
+import { Video } from "../../../models/Video";
 import VideoSearchResult from "./VideoSearchResult";
 
 type Props = {

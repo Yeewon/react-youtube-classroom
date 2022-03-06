@@ -1,8 +1,8 @@
 import { Box, Modal } from "@mui/material";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import SearchModal from "./SearchModal";
-import { Video } from "../../models/Video";
+import { Video } from "../../../models/Video";
+import SearchModal from "../SearchModal/SearchModal";
 
 type Props = {
   display: string;

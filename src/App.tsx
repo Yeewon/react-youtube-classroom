@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import FilterButtonList from "./components/domain/FIlterButtonList";
+import FilterButtonList from "./components/domain/ButtonList/FIlterButtonList";
 import Title from "./components/base/Title";
 import { VIDEO_INFOS } from "./constants/localStorage";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Video } from "./models/Video";
-import SavedVideoList from "./components/domain/SavedVideoList";
+import SavedVideoList from "./components/domain/SavedVideo/SavedVideoList";
 
 const App = () => {
   const [displayOption, setDisplayOption] = useState("toWatch");
