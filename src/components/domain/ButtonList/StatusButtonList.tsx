@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
+import { IS_LIKED, IS_WATCHED } from "../../../constants/classroom";
 import { DELETE_VIDEO_CONFIRM_NSG } from "../../../constants/confirmMessage";
 import { Video } from "../../../models/Video";
 
@@ -22,12 +23,12 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
   const handleStatusButton = (e: React.MouseEvent<HTMLDivElement>) => {
     const { id } = e.target as HTMLInputElement;
 
-    if (["isWatched", "isLiked"].includes(id)) {
+    if ([IS_WATCHED, IS_LIKED].includes(id)) {
       const newVideo: Video = {
         ...video,
         status: {
           ...status,
-          [id]: id === "isWatched" ? !status.isWatched : !status.isLiked,
+          [id]: id === IS_WATCHED ? !status.isWatched : !status.isLiked,
         },
       };
       onClick(newVideo);
