@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Title from "./Title";
+import Title from "./base/Title";
 import SearchForm from "./SearchForm";
 import LatestKeywordList from "./LatestKeywordList";
 import SavedVideoCountSection from "./SavedVideoCountSection";
