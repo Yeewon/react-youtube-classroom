@@ -9,7 +9,10 @@
 </p>
 
 ##  🖥️ 데모 영상
-![유튜브 강의실](https://user-images.githubusercontent.com/39365737/157085561-ed3ff628-a1dd-4d8c-a8bb-e6583d34641f.gif)
+
+
+https://user-images.githubusercontent.com/39365737/157087024-6cc95eba-c500-4462-a702-b6685d5de333.mp4
+
 
 ##  ⚙ 주요 기능
 
