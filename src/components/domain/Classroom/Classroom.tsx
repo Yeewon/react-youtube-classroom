@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { FilterButtonList } from "@/components/domain/ButtonList";
 import { VIDEO_INFOS } from "@/constants/localStorage";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -9,34 +9,29 @@ import ClassroomSnackbar from "@/components/base/ClassroomSnackbar";
 import { SnackbarType } from "@/models/Snackbar";
 
 const Classroom = () => {
-  const [displayOption, setDisplayOption] = useState("toWatch");
+  const [displayOption, setDisplayOption] = useState(TO_WATCH);
   const [videoList, setVideoList] = useLocalStorage<Video[]>(VIDEO_INFOS, []);
-  const [displayVideoList, setDisplayVideoList] = useState(videoList);
+  const displayVideoList = useMemo(() => {
+    let newVideoList: Video[] = [];
+
+    if (displayOption === TO_WATCH) {
+      newVideoList = videoList.filter(({ status }) => !status.isWatched);
+    }
+    if (displayOption === WATCHED) {
+      newVideoList = videoList.filter(({ status }) => status.isWatched);
+    }
+    if (displayOption === LIKED) {
+      newVideoList = videoList.filter(({ status }) => status.isLiked);
+    }
+    return newVideoList;
+  }, [displayOption, videoList]);
+
   const [snack, setSnack] = useState<SnackbarType>({
     type: "",
     status: false,
   });
 
-  useEffect(() => {
-    filterVideo(displayOption);
-  }, [videoList]);
-
-  const filterVideo = (option: string) => {
-    let newVideoList: Video[] = [];
-    if (option === TO_WATCH) {
-      newVideoList = videoList.filter(({ status }) => !status.isWatched);
-    }
-    if (option === WATCHED) {
-      newVideoList = videoList.filter(({ status }) => status.isWatched);
-    }
-    if (option === LIKED) {
-      newVideoList = videoList.filter(({ status }) => status.isLiked);
-    }
-    setDisplayVideoList(newVideoList);
-  };
-
   const handleDisplay = (option: string) => {
-    filterVideo(option);
     setDisplayOption(option);
   };
 
