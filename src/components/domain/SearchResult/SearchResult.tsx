@@ -22,7 +22,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const VideoSearchResult = ({
+const SearchResult = ({
   videoInfo,
   initialState,
   onClickSaveButton,
@@ -57,4 +57,4 @@ const VideoSearchResult = ({
   );
 };
 
-export default VideoSearchResult;
+export default SearchResult;

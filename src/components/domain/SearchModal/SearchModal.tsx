@@ -11,7 +11,7 @@ import { MAX_STORE_KEYWORD_COUNT } from "../../../constants/classroom";
 import Title from "../../base/Title";
 import LatestKeywordList from "../LatestKeyword/LatestKeywordList";
 import SavedVideoCount from "../SavedVideo/SavedVideoCount";
-import VideoSearchResultList from "../SearchResult/VideoSearchResultList";
+import { SearchResultList } from "../SearchResult";
 
 type Props = {
   onClose: any;
@@ -100,8 +100,8 @@ const SearchModal = ({ onClose, onSaveVideo }: Props) => {
         onClickKeyword={searchVideo}
       />
       <SavedVideoCount savedVideoCount={savedVideoCount} />
-      <VideoSearchResultList
-        searchResultList={results}
+      <SearchResultList
+        results={results}
         savedVideoList={savedVideoList}
         onClickSaveButton={handleSaveVideo}
       />

@@ -1,15 +1,15 @@
 import { Box } from "@mui/material";
 import { Video } from "../../../models/Video";
-import VideoSearchResult from "./VideoSearchResult";
+import SearchResult from "./SearchResult";
 
 type Props = {
-  searchResultList: Video[];
+  results: Video[];
   savedVideoList: Video[];
   onClickSaveButton: object;
 };
 
-const VideoSearchResultList = ({
-  searchResultList,
+const SearchResultList = ({
+  results,
   savedVideoList,
   onClickSaveButton,
 }: Props) => {
@@ -20,13 +20,13 @@ const VideoSearchResultList = ({
         flexWrap: "wrap",
       }}
     >
-      {searchResultList.map((searchResult, index) => {
+      {results.map((searchResult, index) => {
         const isSaved: boolean = !!savedVideoList.filter(
           savedVideo => savedVideo.videoId === searchResult.videoId,
         ).length;
 
         return (
-          <VideoSearchResult
+          <SearchResult
             key={index}
             videoInfo={searchResult}
             initialState={isSaved}
@@ -38,4 +38,4 @@ const VideoSearchResultList = ({
   );
 };
 
-export default VideoSearchResultList;
+export default SearchResultList;

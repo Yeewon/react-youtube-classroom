@@ -1,2 +1,2 @@
-export { default as VideoSearchResult } from "./VideoSearchResult";
-export { default as VideoSearchResultList } from "./VideoSearchResultList";
+export { default as SearchResult } from "./SearchResult";
+export { default as SearchResultList } from "./SearchResultList";
