@@ -1,4 +1,4 @@
-import { Box, Modal } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Video } from "../../../models/Video";
@@ -76,9 +76,11 @@ const FilterButtonList = ({ display, onSaveVideo, onDisplay }: Props) => {
         </Button>
       </DisplayButton>
       <Button onClick={handleOpen}>🔍 동영상 검색</Button>
-      <Modal open={open} onClose={handleClose}>
-        <SearchModal onClose={handleClose} onSaveVideo={onSaveVideo} />
-      </Modal>
+      <SearchModal
+        open={open}
+        onClose={handleClose}
+        onSaveVideo={onSaveVideo}
+      />
     </Box>
   );
 };

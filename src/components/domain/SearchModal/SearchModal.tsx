@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
@@ -14,11 +14,12 @@ import SavedVideoCount from "../SavedVideo/SavedVideoCount";
 import { SearchResultList } from "../SearchResult";
 
 type Props = {
+  open: boolean;
   onClose: any;
   onSaveVideo: (savedVideoList: Video[]) => void;
 };
 
-const SearchModal = ({ onClose, onSaveVideo }: Props) => {
+const SearchModal = ({ open, onClose, onSaveVideo }: Props) => {
   const [keyword, setKeyword] = useState("");
   const [results, setResults] = useState<Video[]>([]);
   const [savedVideoCount, setSavedVideoCount] = useState(0);
@@ -82,30 +83,32 @@ const SearchModal = ({ onClose, onSaveVideo }: Props) => {
   };
 
   return (
-    <Box sx={style}>
-      <Box
-        onClick={onClose}
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end",
-          cursor: "pointer",
-        }}
-      >
-        <Close fontSize="medium" />
+    <Modal open={open} onClose={onClose}>
+      <Box sx={style}>
+        <Box
+          onClick={onClose}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            cursor: "pointer",
+          }}
+        >
+          <Close fontSize="medium" />
+        </Box>
+        <Title>🔎 유튜브 검색</Title>
+        <SearchForm onSubmit={searchVideo} selectedKeyword={keyword} />
+        <LatestKeywordList
+          keywordList={latestKeywordList}
+          onClickKeyword={searchVideo}
+        />
+        <SavedVideoCount savedVideoCount={savedVideoCount} />
+        <SearchResultList
+          results={results}
+          savedVideoList={savedVideoList}
+          onClickSaveButton={handleSaveVideo}
+        />
       </Box>
-      <Title>🔎 유튜브 검색</Title>
-      <SearchForm onSubmit={searchVideo} selectedKeyword={keyword} />
-      <LatestKeywordList
-        keywordList={latestKeywordList}
-        onClickKeyword={searchVideo}
-      />
-      <SavedVideoCount savedVideoCount={savedVideoCount} />
-      <SearchResultList
-        results={results}
-        savedVideoList={savedVideoList}
-        onClickSaveButton={handleSaveVideo}
-      />
-    </Box>
+    </Modal>
   );
 };
 
