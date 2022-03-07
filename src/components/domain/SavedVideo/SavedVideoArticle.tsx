@@ -6,7 +6,7 @@ import StatusButtonList from "../ButtonList/StatusButtonList";
 type Props = {
   videoInfo: Video;
   onClick: (newVideo: Video) => void;
-  onSnackbar: (type: string) => void;
+  onSnackbar: (type: string, status: boolean) => void;
   onDelete: (videoId: string) => void;
 };
 

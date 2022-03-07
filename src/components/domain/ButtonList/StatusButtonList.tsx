@@ -7,7 +7,7 @@ import { Video } from "../../../models/Video";
 type Props = {
   video: Video;
   onClick: (newVideo: Video) => void;
-  onSnackbar: (type: string) => void;
+  onSnackbar: (type: string, status: boolean) => void;
   onDelete: (videoId: string) => void;
 };
 
@@ -22,6 +22,8 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
 
   const handleStatusButton = (e: React.MouseEvent<HTMLDivElement>) => {
     const { id } = e.target as HTMLInputElement;
+    const isClicked =
+      id === IS_WATCHED ? !video.status.isWatched : !video.status.isLiked;
 
     if ([IS_WATCHED, IS_LIKED].includes(id)) {
       const newVideo: Video = {
@@ -31,8 +33,9 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
           [id]: id === IS_WATCHED ? !status.isWatched : !status.isLiked,
         },
       };
+
       onClick(newVideo);
-      onSnackbar(id);
+      onSnackbar(id, isClicked);
     }
   };
 

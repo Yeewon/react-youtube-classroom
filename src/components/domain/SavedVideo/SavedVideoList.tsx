@@ -1,9 +1,9 @@
-import { Box, Snackbar, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { LottieIcon } from "../..";
 import { EMPTY_VIDEO_MSG } from "../../../constants/classroom";
 import { Video } from "../../../models/Video";
-
+import ClassroomSnackbar from "../../base/ClassroomSnackbar";
 import SavedVideoArticle from "./SavedVideoArticle";
 
 type Props = {
@@ -12,23 +12,29 @@ type Props = {
   onDelete: (videoId: string) => void;
 };
 
-const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
-  const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("snackbar test!");
+type Snack = {
+  type: string;
+  status: boolean;
+};
 
-  const onSnackbar = (type: string) => {
-    setOpen(true);
-    setMessage(type);
+const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
+  const [snack, setSnack] = useState<Snack>({
+    type: "",
+    status: false,
+  });
+
+  const onSnackbar = (type: string, status: boolean) => {
+    setSnack({
+      type,
+      status,
+    });
   };
 
-  const handleSnackClose = (
-    event: React.SyntheticEvent | Event,
-    reason?: string,
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
+  const onResetSnack = () => {
+    setSnack({
+      type: "",
+      status: false,
+    });
   };
 
   return (
@@ -69,12 +75,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
           </Typography>
         </Box>
       )}
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={handleSnackClose}
-        message={message}
-      />
+      <ClassroomSnackbar snack={snack} onReset={onResetSnack} />
     </Box>
   );
 };
