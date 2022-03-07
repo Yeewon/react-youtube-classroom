@@ -15,7 +15,7 @@ import { SearchResultList } from "../SearchResult";
 
 type Props = {
   open: boolean;
-  onClose: any;
+  onClose: () => void;
   onSaveVideo: (savedVideoList: Video[]) => void;
 };
 
