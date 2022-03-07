@@ -17,30 +17,30 @@ type Props = {
 
 const ClassroomSnackbar = ({ snack, onReset }: Props) => {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState("snackbar test!");
+  const [message, setMessage] = useState("");
   const { type, status } = snack;
 
   useEffect(() => {
+    const handleSnackMsg = () => {
+      let message = "";
+      if (type === IS_WATCHED) {
+        message = status ? WATCHED_SUCCESS_MSG : TO_WATCH_SUCCESS_MSG;
+      }
+      if (type === IS_LIKED) {
+        message = status ? LIKED_SUCCESS_MSG : LIKE_CANCEL_SUCCESS_MSG;
+      }
+      if (type === DELETE) {
+        message = DELETE_SUCCESS_MSG;
+      }
+      setMessage(message);
+    };
+
     if (type) {
       setOpen(true);
-      handleSnackMsg(type);
+      handleSnackMsg();
       onReset();
     }
   }, [type, status, onReset]);
-
-  const handleSnackMsg = (type: string) => {
-    let message = "";
-    if (type === IS_WATCHED) {
-      message = status ? WATCHED_SUCCESS_MSG : TO_WATCH_SUCCESS_MSG;
-    }
-    if (type === IS_LIKED) {
-      message = status ? LIKED_SUCCESS_MSG : LIKE_CANCEL_SUCCESS_MSG;
-    }
-    if (type === DELETE) {
-      message = DELETE_SUCCESS_MSG;
-    }
-    setMessage(message);
-  };
 
   const handleSnackClose = (
     event: React.SyntheticEvent | Event,
