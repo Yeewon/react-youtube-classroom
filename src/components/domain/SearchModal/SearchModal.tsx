@@ -35,7 +35,7 @@ const SearchModal = ({ open, onClose, onSaveVideo }: Props) => {
   useEffect(() => {
     setSavedVideoCount(savedVideoList.length);
     onSaveVideo(savedVideoList);
-  }, [setSavedVideoCount, onSaveVideo, savedVideoList]);
+  }, [savedVideoList]);
 
   const searchVideo = async (keyword: string) => {
     setKeyword(keyword);
