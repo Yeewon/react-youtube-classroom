@@ -60,6 +60,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
           <LottieIcon type={"noVideo"} />
           <Typography
             align="center"
+            color="#586066"
             sx={{
               mt: 5,
             }}
