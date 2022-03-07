@@ -22,7 +22,6 @@ const ClassroomSnackbar = ({ snack, onReset }: Props) => {
 
   useEffect(() => {
     if (type) {
-      console.log(type);
       setOpen(true);
       handleSnackMsg(type);
       onReset();
