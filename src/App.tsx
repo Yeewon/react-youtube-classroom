@@ -6,6 +6,7 @@ import { VIDEO_INFOS } from "./constants/localStorage";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Video } from "./models/Video";
 import SavedVideoList from "./components/domain/SavedVideo/SavedVideoList";
+import { LIKED, TO_WATCH, WATCHED } from "./constants/classroom";
 
 const App = () => {
   const [displayOption, setDisplayOption] = useState("toWatch");
@@ -18,13 +19,13 @@ const App = () => {
 
   const filterVideo = (option: string) => {
     let newVideoList: Video[] = [];
-    if (option === "toWatch") {
+    if (option === TO_WATCH) {
       newVideoList = videoList.filter(({ status }) => !status.isWatched);
     }
-    if (option === "watched") {
+    if (option === WATCHED) {
       newVideoList = videoList.filter(({ status }) => status.isWatched);
     }
-    if (option === "liked") {
+    if (option === LIKED) {
       newVideoList = videoList.filter(({ status }) => status.isLiked);
     }
     setDisplayVideoList(newVideoList);
