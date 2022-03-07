@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { IS_LIKED, IS_WATCHED } from "../../../constants/classroom";
-import { DELETE_VIDEO_CONFIRM_NSG } from "../../../constants/confirmMessage";
-import { Video } from "../../../models/Video";
+import { IS_LIKED, IS_WATCHED } from "@/constants/classroom";
+import { DELETE_VIDEO_CONFIRM_NSG } from "@/constants/confirmMessage";
+import { Video } from "@/models/Video";
 
 type Props = {
   video: Video;

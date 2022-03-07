@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { Video } from "../../../models/Video";
-import SearchResult from "./SearchResult";
+import { Video } from "@/models/Video";
+import { SearchResult } from "@/components/domain/SearchResult";
 
 type Props = {
   results: Video[];

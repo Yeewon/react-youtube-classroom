@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { Video } from "../../models/Video";
-import { formatDate } from "../../utils/date";
+import { Video } from "@/models/Video";
+import { formatDate } from "@/utils/date";
 
 type Props = {
   videoInfo: Video;

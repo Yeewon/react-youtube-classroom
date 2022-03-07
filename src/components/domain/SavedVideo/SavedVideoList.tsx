@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import { LottieIcon } from "../..";
-import { EMPTY_VIDEO_MSG } from "../../../constants/classroom";
-import { SnackbarType } from "../../../models/Snackbar";
-import { Video } from "../../../models/Video";
-import ClassroomSnackbar from "../../base/ClassroomSnackbar";
+import LottieIcon from "@/components/base/LottieIcon";
+import { EMPTY_VIDEO_MSG } from "@/constants/classroom";
+import { SnackbarType } from "@/models/Snackbar";
+import { Video } from "@/models/Video";
+import ClassroomSnackbar from "@/components/base/ClassroomSnackbar";
 import SavedVideoArticle from "./SavedVideoArticle";
 
 type Props = {

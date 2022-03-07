@@ -1,14 +1,14 @@
 import { Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
-import { DELETE, IS_LIKED, IS_WATCHED } from "../../constants/classroom";
+import { DELETE, IS_LIKED, IS_WATCHED } from "@/constants/classroom";
 import {
   DELETE_SUCCESS_MSG,
   LIKED_SUCCESS_MSG,
   LIKE_CANCEL_SUCCESS_MSG,
   TO_WATCH_SUCCESS_MSG,
   WATCHED_SUCCESS_MSG,
-} from "../../constants/snackbarMessage";
-import { SnackbarType } from "../../models/Snackbar";
+} from "@/constants/snackbarMessage";
+import { SnackbarType } from "@/models/Snackbar";
 
 type Props = {
   snack: SnackbarType;

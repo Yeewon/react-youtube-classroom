@@ -2,16 +2,16 @@ import { Box, Modal } from "@mui/material";
 import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
 import { Close } from "@mui/icons-material";
-import { Video } from "../../../models/Video";
-import useLocalStorage from "../../../hooks/useLocalStorage";
-import { LATEST_KEYWORDS, VIDEO_INFOS } from "../../../constants/localStorage";
-import { getSearchResult } from "../../../api/getSearchResult";
-import { formatVideo } from "../../../utils/video";
-import { MAX_STORE_KEYWORD_COUNT } from "../../../constants/classroom";
-import Title from "../../base/Title";
-import LatestKeywordList from "../LatestKeyword/LatestKeywordList";
-import SavedVideoCount from "../SavedVideo/SavedVideoCount";
-import { SearchResultList } from "../SearchResult";
+import { Video } from "@/models/Video";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { LATEST_KEYWORDS, VIDEO_INFOS } from "@/constants/localStorage";
+import { getSearchResult } from "@/api/getSearchResult";
+import { formatVideo } from "@/utils/video";
+import { MAX_STORE_KEYWORD_COUNT } from "@/constants/classroom";
+import Title from "@/components/base/Title";
+import { LatestKeywordList } from "@/components/domain/LatestKeyword";
+import { SavedVideoCount } from "@/components/domain/SavedVideo";
+import { SearchResultList } from "@/components/domain/SearchResult";
 
 type Props = {
   open: boolean;

@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import lottie from "lottie-web";
-import noVideo from "../../assets/no-video-lottie.json";
+import noVideo from "@/assets/no-video-lottie.json";
 import { Box } from "@mui/material";
 
 type Props = {

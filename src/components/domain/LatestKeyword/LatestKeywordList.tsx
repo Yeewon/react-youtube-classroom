@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import LatestKeywordItem from "./LatestKeywordItem";
+import { LatestKeywordItem } from "@/components/domain/LatestKeyword";
 
 type Props = {
   keywordList: string[];
