@@ -1,7 +1,8 @@
 import { Snackbar } from "@mui/material";
 import { useEffect, useState } from "react";
-import { IS_LIKED, IS_WATCHED } from "../../constants/classroom";
+import { DELETE, IS_LIKED, IS_WATCHED } from "../../constants/classroom";
 import {
+  DELETE_SUCCESS_MSG,
   LIKED_SUCCESS_MSG,
   LIKE_CANCEL_SUCCESS_MSG,
   TO_WATCH_SUCCESS_MSG,
@@ -21,6 +22,7 @@ const ClassroomSnackbar = ({ snack, onReset }: Props) => {
 
   useEffect(() => {
     if (type) {
+      console.log(type);
       setOpen(true);
       handleSnackMsg(type);
       onReset();
@@ -34,6 +36,9 @@ const ClassroomSnackbar = ({ snack, onReset }: Props) => {
     }
     if (type === IS_LIKED) {
       message = status ? LIKED_SUCCESS_MSG : LIKE_CANCEL_SUCCESS_MSG;
+    }
+    if (type === DELETE) {
+      message = DELETE_SUCCESS_MSG;
     }
     setMessage(message);
   };

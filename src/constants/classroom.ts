@@ -10,3 +10,4 @@ export const LIKED = "liked";
 
 export const IS_WATCHED = "isWatched";
 export const IS_LIKED = "isLiked";
+export const DELETE = "delete";
