@@ -8,9 +8,8 @@
   <img src="https://img.shields.io/badge/language-React-cyan.svg?style=flat-square"/>
 </p>
 
-<p align="middle">
-<!--   <a href="https://...">🖥️ 데모 링크</a> -->
-</p>
+##  🖥️ 데모 영상
+![유튜브 강의실](https://user-images.githubusercontent.com/39365737/157085561-ed3ff628-a1dd-4d8c-a8bb-e6583d34641f.gif)
 
 ##  ⚙ 주요 기능
 
