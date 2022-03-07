@@ -2,6 +2,7 @@ import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { LottieIcon } from "../..";
 import { EMPTY_VIDEO_MSG } from "../../../constants/classroom";
+import { SnackbarType } from "../../../models/Snackbar";
 import { Video } from "../../../models/Video";
 import ClassroomSnackbar from "../../base/ClassroomSnackbar";
 import SavedVideoArticle from "./SavedVideoArticle";
@@ -12,13 +13,8 @@ type Props = {
   onDelete: (videoId: string) => void;
 };
 
-type Snack = {
-  type: string;
-  status: boolean;
-};
-
 const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
-  const [snack, setSnack] = useState<Snack>({
+  const [snack, setSnack] = useState<SnackbarType>({
     type: "",
     status: false,
   });

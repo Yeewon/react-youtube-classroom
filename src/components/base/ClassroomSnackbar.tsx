@@ -7,14 +7,10 @@ import {
   TO_WATCH_SUCCESS_MSG,
   WATCHED_SUCCESS_MSG,
 } from "../../constants/snackbarMessage";
-
-type Snack = {
-  type: string;
-  status: boolean;
-};
+import { SnackbarType } from "../../models/Snackbar";
 
 type Props = {
-  snack: Snack;
+  snack: SnackbarType;
   onReset: () => void;
 };
 
