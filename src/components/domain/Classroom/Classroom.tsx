@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FilterButtonList from "@/components/domain/ButtonList/FIlterButtonList";
+import { FilterButtonList } from "@/components/domain/ButtonList";
 import { VIDEO_INFOS } from "@/constants/localStorage";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import { Video } from "@/models/Video";
