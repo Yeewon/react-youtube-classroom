@@ -1,18 +1,17 @@
 import { Box } from "@mui/material";
 import { Video } from "@/models/Video";
 import { SearchResult } from "@/components/domain/SearchResult";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { VIDEO_INFOS } from "@/constants/localStorage";
 
 type Props = {
   results: Video[];
-  savedVideoList: Video[];
   onClickSaveButton: object;
 };
 
-const SearchResultList = ({
-  results,
-  savedVideoList,
-  onClickSaveButton,
-}: Props) => {
+const SearchResultList = ({ results, onClickSaveButton }: Props) => {
+  const [savedVideoList] = useLocalStorage<Video[]>(VIDEO_INFOS, []);
+
   return (
     <Box
       sx={{

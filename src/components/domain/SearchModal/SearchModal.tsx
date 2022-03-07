@@ -104,7 +104,6 @@ const SearchModal = ({ open, onClose, onSaveVideo }: Props) => {
         <SavedVideoCount savedVideoCount={savedVideoCount} />
         <SearchResultList
           results={results}
-          savedVideoList={savedVideoList}
           onClickSaveButton={handleSaveVideo}
         />
       </Box>
