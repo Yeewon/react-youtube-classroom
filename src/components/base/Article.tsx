@@ -57,7 +57,7 @@ const Article = ({ videoInfo }: Props) => {
       >
         <VideoTitle>{title}</VideoTitle>
         <ChannelLink
-          href={`https://www.youtube.com/channel/${channelId} `}
+          href={`https://www.youtube-nocookie.com/channel/${channelId} `}
           target="_blank"
         >
           {channelTitle}
