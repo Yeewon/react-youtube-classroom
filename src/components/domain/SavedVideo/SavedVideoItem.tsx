@@ -10,7 +10,7 @@ type Props = {
   onDelete: (videoId: string) => void;
 };
 
-const SavedVideoArticle = ({
+const SavedVideoItem = ({
   videoInfo,
   onClick,
   onSnackbar,
@@ -34,4 +34,4 @@ const SavedVideoArticle = ({
   );
 };
 
-export default SavedVideoArticle;
+export default SavedVideoItem;

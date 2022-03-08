@@ -5,7 +5,7 @@ import { EMPTY_VIDEO_MSG } from "@/constants/classroom";
 import { SnackbarType } from "@/models/Snackbar";
 import { Video } from "@/models/Video";
 import ClassroomSnackbar from "@/components/base/ClassroomSnackbar";
-import SavedVideoArticle from "./SavedVideoArticle";
+import { SavedVideoItem } from "@/components/domain/SavedVideo";
 
 type Props = {
   videoList: Video[];
@@ -44,7 +44,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
       {videoList.length ? (
         videoList.map((aVideo, index) => {
           return (
-            <SavedVideoArticle
+            <SavedVideoItem
               key={index}
               videoInfo={aVideo}
               onClick={onClick}
