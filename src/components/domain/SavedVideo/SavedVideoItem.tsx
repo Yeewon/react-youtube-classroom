@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import styled from "@emotion/styled";
 import { Article } from "../..";
 import { Video } from "@/models/Video";
 import { StatusButtonList } from "@/components/domain/ButtonList";
@@ -10,6 +10,11 @@ type Props = {
   onDelete: (videoId: string) => void;
 };
 
+const VideoContainer = styled.div`
+  max-width: 180px;
+  margin: 5px;
+`;
+
 const SavedVideoItem = ({
   videoInfo,
   onClick,
@@ -17,12 +22,7 @@ const SavedVideoItem = ({
   onDelete,
 }: Props) => {
   return (
-    <Box
-      sx={{
-        maxWidth: "180px",
-        m: 0.5,
-      }}
-    >
+    <VideoContainer className="saved-video" data-id={videoInfo.videoId}>
       <Article videoInfo={videoInfo} />
       <StatusButtonList
         video={videoInfo}
@@ -30,7 +30,7 @@ const SavedVideoItem = ({
         onSnackbar={onSnackbar}
         onDelete={onDelete}
       />
-    </Box>
+    </VideoContainer>
   );
 };
 

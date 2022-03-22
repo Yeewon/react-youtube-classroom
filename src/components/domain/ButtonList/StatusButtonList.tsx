@@ -52,7 +52,7 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
         justifyContent: "flex-end",
       }}
     >
-      <Box onClick={handleStatusButton}>
+      <div id="button-list" onClick={handleStatusButton}>
         <StatusButton
           id="isWatched"
           style={{
@@ -69,8 +69,10 @@ const StatusButtonList = ({ video, onClick, onSnackbar, onDelete }: Props) => {
         >
           👍🏻
         </StatusButton>
-      </Box>
-      <StatusButton onClick={handleDeleteVideo}>🗑</StatusButton>
+      </div>
+      <StatusButton id="delete" onClick={handleDeleteVideo}>
+        🗑
+      </StatusButton>
     </Box>
   );
 };

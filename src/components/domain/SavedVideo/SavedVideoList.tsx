@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import LottieIcon from "@/components/base/LottieIcon";
@@ -12,6 +13,12 @@ type Props = {
   onClick: (newVideo: Video) => void;
   onDelete: (videoId: string) => void;
 };
+
+const VideoListContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
 
 const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
   const [snack, setSnack] = useState<SnackbarType>({
@@ -34,13 +41,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-      }}
-    >
+    <VideoListContainer id="saved-video-list">
       {videoList.length ? (
         videoList.map((aVideo, index) => {
           return (
@@ -72,7 +73,7 @@ const SavedVideoList = ({ videoList, onClick, onDelete }: Props) => {
         </Box>
       )}
       <ClassroomSnackbar snack={snack} onReset={onResetSnack} />
-    </Box>
+    </VideoListContainer>
   );
 };
 
