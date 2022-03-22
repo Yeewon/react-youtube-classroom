@@ -27,6 +27,7 @@ const SearchResultList = ({ results, onClickSaveButton }: Props) => {
         return (
           <SearchResult
             key={index}
+            index={index}
             videoInfo={searchResult}
             initialState={isSaved}
             onClickSaveButton={onClickSaveButton}

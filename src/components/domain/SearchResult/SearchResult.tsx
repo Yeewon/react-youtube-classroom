@@ -9,6 +9,7 @@ type Props = {
   onClickSaveButton: any;
   initialState: boolean;
   key: number;
+  index: number;
 };
 
 const Button = styled.button`
@@ -23,6 +24,7 @@ const Button = styled.button`
 `;
 
 const SearchResult = ({
+  index,
   videoInfo,
   initialState,
   onClickSaveButton,
@@ -49,7 +51,7 @@ const SearchResult = ({
           justifyContent: "flex-end",
         }}
       >
-        <Button onClick={handleSaveVideo}>
+        <Button data-id={index} onClick={handleSaveVideo}>
           {isSaved ? "↪️ 저장 취소" : "⬇️ 저장"}
         </Button>
       </Box>
