@@ -36,4 +36,12 @@ describe("나만의 유튜브 강의실", () => {
     cy.get("[data-id=0]").should("have.text", "⬇️ 저장");
     cy.get("#saved-video-count").should("have.text", "저장된 영상 갯수: 0/100");
   });
+
+  it("최근 검색 키워드를 클릭하면 해당 키워드로 동영상이 검색된다.", () => {
+    cy.get("#keyword-button")
+      .click()
+      .then(() => {
+        cy.get("iframe").should("have.length", FETCH_VIDEO_COUNT);
+      });
+  });
 });
