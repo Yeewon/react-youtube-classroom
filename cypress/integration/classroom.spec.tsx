@@ -80,4 +80,15 @@ describe("나만의 유튜브 강의실", () => {
     cy.contains("👍🏻 좋아요 한 영상").click();
     cy.checkClassroomVideoCount(0);
   });
+
+  it("삭제 버튼을 누르면 경고창이 뜨고 확인 버튼을 누르면 삭제된다.", () => {
+    cy.contains("볼 영상").click();
+
+    cy.get("#delete").click();
+    cy.on("window:alert", text => {
+      expect(text).to.equal("해당 영상을 삭제하시겠습니까?");
+    });
+
+    cy.checkClassroomVideoCount(2);
+  });
 });
