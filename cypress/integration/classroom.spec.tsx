@@ -24,4 +24,16 @@ describe("나만의 유튜브 강의실", () => {
   it("최근 검색 키워드 버튼 생성을 생성한다.", () => {
     cy.get("#keyword-button").should("have.text", keyword);
   });
+
+  it("동영상 저장 버튼을 클릭하면 취소 버튼으로 바뀌고 저장된 영상 갯수가 갱신된다.", () => {
+    cy.get("[data-id=0]").contains("⬇️ 저장").click();
+    cy.get("[data-id=0]").should("have.text", "↪️ 저장 취소");
+    cy.get("#saved-video-count").should("have.text", "저장된 영상 갯수: 1/100");
+  });
+
+  it("동영상 저장 취소 버튼을 클릭하면 저장 버튼으로 바뀌고 저장된 영상 갯수가 갱신된다.", () => {
+    cy.get("[data-id=0]").contains("↪️ 저장 취소").click();
+    cy.get("[data-id=0]").should("have.text", "⬇️ 저장");
+    cy.get("#saved-video-count").should("have.text", "저장된 영상 갯수: 0/100");
+  });
 });
