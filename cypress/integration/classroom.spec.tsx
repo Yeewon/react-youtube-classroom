@@ -44,4 +44,40 @@ describe("나만의 유튜브 강의실", () => {
         cy.get("iframe").should("have.length", FETCH_VIDEO_COUNT);
       });
   });
+
+  it("동영상을 저장하면 강의실에서 확인할 수 있다.", () => {
+    cy.saveVideo([0, 1, 2]);
+    cy.get('[data-testid="CloseIcon"]').click();
+    cy.checkClassroomVideoCount(3);
+  });
+
+  it("본 영상으로 체크하면 영상이 필터링되어 보여진다.", () => {
+    cy.get("#isWatched").click();
+    cy.checkClassroomVideoCount(2);
+
+    cy.contains("본 영상").click();
+    cy.checkClassroomVideoCount(1);
+  });
+
+  it("볼 영상으로 체크하면 영상이 필터링되어 보여진다.", () => {
+    cy.get("#isWatched").click();
+    cy.checkClassroomVideoCount(0);
+
+    cy.contains("볼 영상").click();
+    cy.checkClassroomVideoCount(3);
+  });
+
+  it("좋아요 버튼을 클릭하면 좋아요 한 영상 목록에 추가된다..", () => {
+    cy.get("#isLiked").click();
+
+    cy.contains("👍🏻 좋아요 한 영상").click();
+    cy.checkClassroomVideoCount(1);
+  });
+
+  it("좋아요를 취소하면 좋아요 한 영상 목록에서 제거된다.", () => {
+    cy.get("#isLiked").click();
+
+    cy.contains("👍🏻 좋아요 한 영상").click();
+    cy.checkClassroomVideoCount(0);
+  });
 });
