@@ -7,6 +7,7 @@ type Props = {
 const SavedVideoCount = ({ savedVideoCount }: Props) => {
   return (
     <Box
+      id="saved-video-count"
       sx={{
         display: "flex",
         justifyContent: "flex-end",

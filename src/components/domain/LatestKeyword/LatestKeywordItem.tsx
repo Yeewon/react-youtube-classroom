@@ -24,7 +24,11 @@ const LatestKeywordItem = ({ keyword, onClickKeyword }: Props) => {
   const handleClickKeyword = () => {
     onClickKeyword(keyword);
   };
-  return <KeywordButton onClick={handleClickKeyword}>{keyword}</KeywordButton>;
+  return (
+    <KeywordButton id="keyword-button" onClick={handleClickKeyword}>
+      {keyword}
+    </KeywordButton>
+  );
 };
 
 export default LatestKeywordItem;
