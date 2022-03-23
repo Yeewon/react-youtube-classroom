@@ -9,7 +9,10 @@
 </p>
 
 ##  🖥️ 데모 영상
-![유튜브 강의실](https://user-images.githubusercontent.com/39365737/157286534-13f41ea8-9fab-4f4f-abdb-378241246d21.gif)
+<p align="middle">
+  <a href="https://yeewonclassroom.netlify.app/">👩🏻‍💻 나만의 유튜브 강의실 👨🏻‍💻</a>
+</p>
+
 
 
 ##  ⚙ 주요 기능
