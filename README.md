@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/language-React-cyan.svg?style=flat-square"/>
 </p>
 
-##  🖥️ 데모 영상
+##  🖥️ 배포 링크
 <p align="middle">
   <a href="https://yeewonclassroom.netlify.app/">👩🏻‍💻 나만의 유튜브 강의실 👨🏻‍💻</a>
 </p>
