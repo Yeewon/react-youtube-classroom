@@ -6,6 +6,7 @@
   <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="template version"/>
   <img src="https://img.shields.io/badge/language-Typescript-blue.svg?style=flat-square"/>
   <img src="https://img.shields.io/badge/language-React-cyan.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/language-Context API-cyan.svg?style=flat-square"/>
 </p>
 
 ##  🖥️ 배포 링크
