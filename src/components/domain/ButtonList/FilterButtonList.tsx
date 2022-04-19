@@ -3,11 +3,11 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { Video } from "@/models/Video";
 import { SearchModal } from "@/components/domain/SearchModal";
+import { useFilterDispatch } from "@/contexts/FilterContext";
 
 type Props = {
   display: string;
   onSaveVideo: (savedVideoList: Video[]) => void;
-  onDisplay: (id: string) => void;
 };
 
 const DisplayButton = styled.div``;
@@ -23,14 +23,25 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const FilterButtonList = ({ display, onSaveVideo, onDisplay }: Props) => {
+const FilterButtonList = ({ display, onSaveVideo }: Props) => {
   const [open, setOpen] = useState(false);
+  const dispatch = useFilterDispatch();
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleDisplay = (e: React.MouseEvent<HTMLDivElement>) => {
     const { id } = e.target as HTMLInputElement;
-    onDisplay(id);
+
+    switch (id) {
+      case "toWatch":
+        return dispatch({ type: "CHANGE_TO_WATCH" });
+      case "watched":
+        return dispatch({ type: "CHANGE_WATCHED" });
+      case "liked":
+        return dispatch({ type: "CHANGE_LIKED" });
+      default:
+        throw new Error("Unhandled action");
+    }
   };
 
   return (

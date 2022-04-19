@@ -7,9 +7,10 @@ import SavedVideoList from "@/components/domain/SavedVideo/SavedVideoList";
 import { DELETE, LIKED, TO_WATCH, WATCHED } from "@/constants/classroom";
 import ClassroomSnackbar from "@/components/base/ClassroomSnackbar";
 import { SnackbarType } from "@/models/Snackbar";
+import { useFilterState } from "@/contexts/FilterContext";
 
 const Classroom = () => {
-  const [displayOption, setDisplayOption] = useState(TO_WATCH);
+  const { filter: displayOption } = useFilterState();
   const [videoList, setVideoList] = useLocalStorage<Video[]>(VIDEO_INFOS, []);
   const displayVideoList = useMemo(() => {
     let newVideoList: Video[] = [];
@@ -30,10 +31,6 @@ const Classroom = () => {
     type: "",
     status: false,
   });
-
-  const handleDisplay = (option: string) => {
-    setDisplayOption(option);
-  };
 
   const onSaveVideo = (savedVideoList: Video[]) => {
     setVideoList(savedVideoList);
@@ -64,11 +61,7 @@ const Classroom = () => {
 
   return (
     <>
-      <FilterButtonList
-        display={displayOption}
-        onSaveVideo={onSaveVideo}
-        onDisplay={handleDisplay}
-      />
+      <FilterButtonList display={displayOption} onSaveVideo={onSaveVideo} />
       <SavedVideoList
         videoList={displayVideoList}
         onClick={handleClickStatusButton}
