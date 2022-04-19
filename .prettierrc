@@ -7,6 +7,7 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "proseWrap": "preserve",
-  "endOfLine": "crlf",
+  "endOfLine": "auto",
   "htmlWhitespaceSensitivity": "css"
 }
+
